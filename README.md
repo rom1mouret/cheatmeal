@@ -17,7 +17,7 @@ SVM classification performance averaged over 47 rounds from 3 rows randomly samp
 Dataset: [creditcardfraud](https://www.kaggle.com/mlg-ulb/creditcardfraud)
 
 | Algorithm       | Macro F1 | Macro F1 std  |
-| ------------- |:-------------:| -----:|
+| ------------- |-------------:| -----:|
 | Baseline Autoencoder     | 34.0% | 16.1%  |
 | Recoder      |   76.4%     |   11.5% |
 
@@ -28,11 +28,11 @@ Precision of a 3-detector ensemble averaged over 100 rounds.
 
 Dataset: [kddcup99](http://kdd.ics.uci.edu/databases/kddcup99), DoS attacks are excluded because they outnumber normal data.
 
-| Algorithm       | precision@k | precision@k  std  |
-| ------------- |:-------------:| -----:|
-| CheatMeal (forgiveness=0) | 69.0% | 3.6%  |
-| CheatMeal (forgiveness=2) |   73.4%     |   5.1% |
-| Scikit IForest | 71.6% | 7.4% |
+| Algorithm       | precision@k | precision@k std  | precision@k 10th percentile |
+| ------------- |-------------:| -----:|-----:|
+| CheatMeal (forgiveness=0) | 69.0% | 3.6%  | 65.5% |
+| CheatMeal (forgiveness=2) |   73.4%     |   5.1% | 66.2% |
+| Scikit IForest | 71.6% | 7.4% | 63.1 % |
 
 `k ~ 8200 out of 200,000 rows`
 
