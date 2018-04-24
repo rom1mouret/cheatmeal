@@ -32,6 +32,7 @@ Dataset: [kddcup99](http://kdd.ics.uci.edu/databases/kddcup99), DoS attacks are 
 | ------------- |:-------------:| -----:|
 | CheatMeal (forgiveness=0) | 69.0% | 3.6%  |
 | CheatMeal (forgiveness=2) |   73.4%     |   5.1% |
+| Scikit IForest | 71.6% | 7.4% |
 
 `k ~ 8200 out of 200,000 rows`
 
