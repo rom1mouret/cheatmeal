@@ -23,7 +23,6 @@ Dataset: [creditcardfraud](https://www.kaggle.com/mlg-ulb/creditcardfraud)
 
 ## Outlier Detection Benchmarks
 
-
 Precision of a 3-detector ensemble averaged over 100 rounds.
 
 Dataset: [kddcup99](http://kdd.ics.uci.edu/databases/kddcup99), DoS attacks are excluded because they outnumber normal data.
@@ -81,7 +80,7 @@ The rationale behind CheatMealAE is also twofold:
 Another, more hypothetical reason can be given for the second rationale:
 Granted latent units are soft assignments to clusters, mapping such latent units to large-weighted features LWF and to small-weighted features SWF implies that the corresponding cluster is located at LWF and spreads along the SWF axes. If we knew how SWF were spread, we could use CheatMealAE as a generative model.
 
-CheatMealAE has a extra hyperparameter call 'forgiveness'. At `forgiveness=0`, CheatMealAE behaves like a normal autoencoder. At `forgiveness=1`, the loss can ignore up to 1 feature, i.e. `weights = 1 - softmax(decoded)`. At `forgiveness=2`, two softmax are blended together, and so on.
+CheatMealAE has a extra hyperparameter called 'forgiveness'. At `forgiveness=0`, CheatMealAE behaves like a normal autoencoder. At `forgiveness=1`, the loss can ignore up to 1 feature, i.e. `weights = 1 - softmax(decoded)`. At `forgiveness=2`, two softmax are blended together, and so on.
 
 
 ## Installation
@@ -91,12 +90,12 @@ Install dependencies:
 * Python >= 3.4
 * NumPy >= 1.11
 * Scikit-learn >= 0.19
-* PyTorch >= 0.3.1
+* PyTorch == 0.3.1 or 0.3.0
 * Pandas >= 0.22 (for benchmarks only)
 
 Now `cd` to cheatmeal directory and run `python3 setup.py install` with the adequate permissions.
 
-## How To Reproduce Results
+## How To Reproduce The Results
 
 For dimensionality reduction benchmarks, download the credit card fraud dataset from [Kaggle website](https://www.kaggle.com/mlg-ulb/creditcardfraud).
 

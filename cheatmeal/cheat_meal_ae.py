@@ -63,18 +63,29 @@ class Net(nn.Module):
         return combined
 
 
-def cross_entropy(y_pred, y_true, not_bin_cols, bin_cols):
+def binarize_targets(y_pred, y_true, not_bin_cols, bin_cols):
     if len(not_bin_cols) > 0:
         not_binary = y_true[:, not_bin_cols]
         binarized = nn.functional.sigmoid(0.1*not_binary)
 
         if len(bin_cols) > 0:
             binary = y_true[:, bin_cols]
-            y_true = torch.cat([binary, binarized], dim=1)
+            y_true = torch.cat([binarized, binary], dim=1)
         else:
             y_true = binarized
 
-    y_true = torch.cat([binary, binarized], dim=1)
+    # same order for the predictions
+    # (doesn't really matter if y_pred is not used outside this function)
+    if y_pred is not None:
+        reordering = np.concatenate([not_bin_cols, bin_cols])
+        y_pred = y_pred[:, reordering]
+
+    return y_pred, y_true
+
+
+def cross_entropy(y_pred, y_true, not_bin_cols, bin_cols):
+    y_pred, y_true = binarize_targets(y_pred, y_true, not_bin_cols, bin_cols)
+
     max_val = (-y_pred).clamp(min=0)
     E = y_pred - y_pred * y_true + max_val + ((-max_val).exp() + (-y_pred - max_val).exp()).log()
 

@@ -39,7 +39,7 @@ def draw_graph(shifts, probabilities):
     plt.plot(shifts, probabilities)
     plt.title('probability that tested AE is that often better than baseline\n' + \
               'assuming null hypothesis (detectors both as likely to outperform the other)')
-    plt.xlabel('mininimum margin x between paired measurements to count as "better"')
+    plt.xlabel('minimum margin x between paired measurements to count as "better"')
     plt.ylabel('probability')
 
     #plt.show()
