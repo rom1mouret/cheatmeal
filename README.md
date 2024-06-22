@@ -5,7 +5,7 @@ Improvements over autoencoders in PyTorch.
 CheatMeal library provides 3 classes:
 
 
-* **Training Proxy** trains multiple autoencoders on multiple GPUs. It takes arbitrary-sized batches as input, delivered asynchronously by a process or a pool of processes spawn by the user.
+* **Training Proxy** trains multiple autoencoders on multiple GPUs. It takes arbitrary-sized batches as input, delivered asynchronously by a process or a pool of processes spawned by the user.
 * **CheatMealAE** allows its autoencoder to be forgiving on the reconstruction error of a small subset of columns. Anomaly detection takes advantage of this feature.
 * **Recoder** places constraints on the latent units in order to facilitate classification via dimensionality reduction.
 
@@ -78,9 +78,9 @@ The rationale behind CheatMealAE is also twofold:
 2. Lower the weights of the features that are random or random-*ish*, both in the loss and the anomaly score.
 
 Another, more hypothetical reason can be given for the second rationale:
-Granted latent units are soft assignments to clusters, mapping such latent units to large-weighted features LWF and to small-weighted features SWF implies that the corresponding cluster is located at LWF and spreads along the SWF axes. If we knew how SWF were spread, we could use CheatMealAE as a generative model.
+Granted latent units are soft assignments to clusters, mapping such latent units to large-weighed features LWF and to small-weighed features SWF implies that the corresponding cluster is located at LWF and spreads along the SWF axes. If we knew how SWF were spread, we could use CheatMealAE as a generative model.
 
-CheatMealAE has a extra hyperparameter called 'forgiveness'. At `forgiveness=0`, CheatMealAE behaves like a normal autoencoder. At `forgiveness=1`, the loss can ignore up to 1 feature, i.e. `weights = 1 - softmax(decoded)`. At `forgiveness=2`, two softmax are blended together, and so on.
+CheatMealAE has an extra hyperparameter called 'forgiveness'. At `forgiveness=0`, CheatMealAE behaves like a normal autoencoder. At `forgiveness=1`, the loss can ignore up to 1 feature, i.e. `weights = 1 - softmax(decoded)`. At `forgiveness=2`, two softmax are blended together, and so on.
 
 
 ## Installation
